@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IOE MASTER - Hệ thống AI hỗ trợ học tập và quản trị luyện thi tiếng Anh THPT">
+<title>IOE MASTER | Project Documentation</title>
+
+<style>
+:root {
+    --primary: #173b70;
+    --secondary: #2563eb;
+    --accent: #14b8a6;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+    --text: #263449;
+    --muted: #64748b;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(135deg, #173b70, #2563eb);
+    color: white;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 38px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 17px;
+    opacity: .9;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 25px;
+}
+
+nav {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 2px 10px #00000008;
+}
+
+nav a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+section {
+    background: var(--surface);
+    padding: 28px;
+    margin-bottom: 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+h2 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+}
+
+h3 {
+    color: var(--secondary);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: #f0f6ff;
+    border-radius: 10px;
+    padding: 18px;
+    border-left: 4px solid var(--secondary);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: #eaf1fc;
+    color: var(--primary);
+}
+
+pre {
+    background: #172033;
+    color: #dbeafe;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+.tag {
+    display: inline-block;
+    background: #dff7f2;
+    color: #087f70;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.warning {
+    background: #fff7e6;
+    border-left: 4px solid #f59e0b;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+@media(max-width:600px) {
+    header h1 { font-size: 28px; }
+    .container { padding: 12px; }
+    section { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>IOE MASTER</h1>
+    <p>AI-Powered English Learning & Assessment System</p>
+    <span class="tag">MVP PROJECT DOCUMENTATION</span>
+</header>
+
+<div class="container">
+
+<nav>
+    <a href="#overview">Overview</a>
+    <a href="#objectives">Objectives</a>
+    <a href="#technology">Technology</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#database">Database</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#api">API</a>
+    <a href="#prompts">AI Prompts</a>
+    <a href="#roadmap">Roadmap</a>
+</nav>
+
+<!-- README -->
+
+<section id="overview">
+<h2>01. PROJECT OVERVIEW</h2>
+
+<h3>IOE MASTER là gì?</h3>
+
+<p>
+IOE MASTER là hệ thống ứng dụng trí tuệ nhân tạo nhằm hỗ trợ
+học sinh THPT học tập, luyện tập và nâng cao năng lực tiếng Anh.
+Đồng thời, hệ thống cung cấp công cụ quản trị ngân hàng câu hỏi,
+đánh giá kết quả và theo dõi tiến bộ học tập cho giáo viên.
+</p>
+
+<p>
+Hệ thống hướng đến mô hình học tập cá nhân hóa:
+</p>
+
+<blockquote>
+Learn – Practice – Assess – Analyze – Improve.
+</blockquote>
+
+<p>
+Đối tượng sử dụng: Giáo viên quản trị, giáo viên bộ môn
+và học sinh lớp 10, 11, 12.
+</p>
+</section>
+
+<section id="objectives">
+<h2>02. PROJECT OBJECTIVES</h2>
+
+<div class="card-grid">
+    <div class="card">
+        <h3>01. AI Test Generator</h3>
+        <p>Tạo đề luyện tập tự động theo lớp, chủ đề và mức độ.</p>
+    </div>
+
+    <div class="card">
+        <h3>02. Question Bank</h3>
+        <p>Xây dựng và quản lý ngân hàng câu hỏi tiếng Anh.</p>
+    </div>
+
+    <div class="card">
+        <h3>03. AI Grading</h3>
+        <p>Chấm điểm và cung cấp phản hồi cho học sinh.</p>
+    </div>
+
+    <div class="card">
+        <h3>04. Error Analysis</h3>
+        <p>Phân tích lỗi từ vựng, ngữ pháp và đọc hiểu.</p>
+    </div>
+
+    <div class="card">
+        <h3>05. Study Plan</h3>
+        <p>Đề xuất lộ trình ôn tập cá nhân hóa trong 7 ngày.</p>
+    </div>
+
+    <div class="card">
+        <h3>06. Teacher Dashboard</h3>
+        <p>Theo dõi kết quả và tiến bộ của từng học sinh.</p>
+    </div>
+</div>
+</section>
+
+<section id="technology">
+<h2>03. TECHNOLOGY STACK</h2>
+
+<table>
+<tr>
+<th>Công nghệ</th>
+<th>Vai trò</th>
+</tr>
+<tr><td>Python</td><td>Ngôn ngữ lập trình backend</td></tr>
+<tr><td>FastAPI</td><td>Xây dựng REST API</td></tr>
+<tr><td>Supabase</td><td>Cơ sở dữ liệu PostgreSQL và xác thực</td></tr>
+<tr><td>OpenRouter</td><td>Kết nối các mô hình AI</td></tr>
+<tr><td>DeepSeek</td><td>Hỗ trợ sinh đề và phân tích học tập</td></tr>
+<tr><td>n8n</td><td>Tự động hóa quy trình</td></tr>
+<tr><td>Whimsical</td><td>Thiết kế sơ đồ hệ thống</td></tr>
+</table>
+</section>
+
+<section id="architecture">
+<h2>04. SYSTEM ARCHITECTURE</h2>
+
+<pre>
+TEACHER
+   |
+   v
+QUESTION BANK
+   |
+   v
+SUPABASE DATABASE
+   |
+   v
+AI TEST GENERATOR
+   |
+   v
+STUDENT
+   |
+   v
+SUBMIT ANSWERS
+   |
+   v
+AI GRADING
+   |
+   v
+ERROR ANALYSIS
+   |
+   v
+PERSONALIZED STUDY PLAN
+   |
+   v
+TEACHER DASHBOARD
+</pre>
+</section>
+
+<!-- DATABASE -->
+
+<section id="database">
+<h2>05. DATABASE DESIGN</h2>
+
+<h3>Table: students</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid - Primary Key</td></tr>
+<tr><td>student_code</td><td>text</td></tr>
+<tr><td>full_name</td><td>text</td></tr>
+<tr><td>grade</td><td>integer</td></tr>
+<tr><td>class_name</td><td>text</td></tr>
+<tr><td>created_at</td><td>timestamp</td></tr>
+</table>
+
+<h3>Table: questions</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid</td></tr>
+<tr><td>topic</td><td>text</td></tr>
+<tr><td>difficulty</td><td>text</td></tr>
+<tr><td>question</td><td>text</td></tr>
+<tr><td>answer</td><td>text</td></tr>
+<tr><td>status</td><td>text</td></tr>
+</table>
+
+<p><strong>Question status:</strong></p>
+<ul>
+<li>draft</li>
+<li>review</li>
+<li>approved</li>
+<li>published</li>
+</ul>
+
+<h3>Table: tests</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid</td></tr>
+<tr><td>title</td><td>text</td></tr>
+<tr><td>grade</td><td>integer</td></tr>
+<tr><td>total_questions</td><td>integer</td></tr>
+</table>
+
+<h3>Table: attempts</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid</td></tr>
+<tr><td>student_id</td><td>uuid</td></tr>
+<tr><td>test_id</td><td>uuid</td></tr>
+<tr><td>score</td><td>float</td></tr>
+<tr><td>submitted_at</td><td>timestamp</td></tr>
+</table>
+
+<h3>Table: error_analysis</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid</td></tr>
+<tr><td>student_id</td><td>uuid</td></tr>
+<tr><td>weakness</td><td>text</td></tr>
+<tr><td>recommendation</td><td>text</td></tr>
+</table>
+
+<h3>Table: study_plans</h3>
+<table>
+<tr><th>Field</th><th>Type</th></tr>
+<tr><td>id</td><td>uuid</td></tr>
+<tr><td>student_id</td><td>uuid</td></tr>
+<tr><td>plan</td><td>text</td></tr>
+</table>
+
+</section>
+
+<!-- WORKFLOW -->
+
+<section id="workflow">
+<h2>06. USER WORKFLOW</h2>
+
+<h3>Student Journey</h3>
+<pre>
+Login
+  ↓
+Select Topic
+  ↓
+Generate Test
+  ↓
+Take Test
+  ↓
+Submit
+  ↓
+AI Grading
+  ↓
+Error Analysis
+  ↓
+Personalized Study Plan
+</pre>
+
+<h3>Teacher Journey</h3>
+<pre>
+Create Question
+  ↓
+Review Question
+  ↓
+Question Bank
+  ↓
+Approve
+  ↓
+Publish Test
+  ↓
+Monitor Student Results
+</pre>
+
+<h3>AI Journey</h3>
+<pre>
+OpenRouter
+  ├── Generate Test
+  ├── Grade Test
+  ├── Analyze Errors
+  └── Generate Study Plan
+</pre>
+</section>
+
+<!-- API -->
+
+<section id="api">
+<h2>07. API ENDPOINTS</h2>
+
+<h3>Generate Test</h3>
+<p><span class="tag">POST</span> /generate-test</p>
+
+<pre>
+{
+  "grade": 10,
+  "topic": "Vocabulary",
+  "number": 20
+}
+</pre>
+
+<h3>Submit Test</h3>
+<p><span class="tag">POST</span> /submit-test</p>
+
+<pre>
+{
+  "student_id": "HS001",
+  "test_id": "TEST001",
+  "answers": []
+}
+</pre>
+
+<h3>Analyze Student</h3>
+<p><span class="tag">GET</span> /analyze/{student_id}</p>
+
+<pre>
+{
+  "weakness": [],
+  "recommendation": []
+}
+</pre>
+</section>
+
+<!-- PROMPTS -->
+
+<section id="prompts">
+<h2>08. AI PROMPT ENGINEERING</h2>
+
+<h3>Prompt 1: Generate Test</h3>
+<pre>
+You are an expert English teacher.
+
+Generate an English test for Vietnamese
+high school students.
+
+Requirements:
+- Grade: {{grade}}
+- Topic: {{topic}}
+- Number of questions: {{number}}
+- Difficulty: {{difficulty}}
+
+Requirements:
+- Follow the Vietnamese high school curriculum.
+- Ensure linguistic accuracy.
+- Provide one correct answer for each MCQ.
+- Include answer explanations.
+- Return valid JSON only.
+</pre>
+
+<h3>Prompt 2: Grade Test</h3>
+<pre>
+You are an English assessment expert.
+
+Compare the student's answers with
+the verified answer key.
+
+Return:
+{
+  "score": 0,
+  "correct": 0,
+  "wrong": 0,
+  "feedback": []
+}
+</pre>
+
+<h3>Prompt 3: Analyze Errors</h3>
+<pre>
+Analyze the student's mistakes.
+
+Identify:
+- Vocabulary weaknesses
+- Grammar weaknesses
+- Reading comprehension weaknesses
+- Common error patterns
+
+Suggest specific improvement strategies.
+Do not invent student performance data.
+</pre>
+
+<h3>Prompt 4: Study Plan</h3>
+<pre>
+Create a personalized 7-day English
+learning plan based on verified weaknesses.
+
+Include:
+- Daily learning objectives
+- Vocabulary practice
+- Grammar exercises
+- Reading practice
+- Self-assessment
+</pre>
+
+</section>
+
+<!-- ROADMAP -->
+
+<section id="roadmap">
+<h2>09. DEVELOPMENT ROADMAP</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>PHASE 1 - CORE MVP</h3>
+<p>Question Bank</p>
+<p>Supabase Database</p>
+<p>AI Test Generator</p>
+<p>Teacher Review</p>
+</div>
+
+<div class="card">
+<h3>PHASE 2 - ASSESSMENT</h3>
+<p>Online Testing</p>
+<p>Automatic Grading</p>
+<p>Error Analysis</p>
+</div>
+
+<div class="card">
+<h3>PHASE 3 - PERSONALIZATION</h3>
+<p>Individual Study Plans</p>
+<p>Teacher Dashboard</p>
+<p>Progress Reports</p>
+</div>
+
+<div class="card">
+<h3>PHASE 4 - EXPANSION</h3>
+<p>Speaking Practice</p>
+<p>Parent Reports</p>
+<p>Mobile Application</p>
+</div>
+
+</div>
+</section>
+
+<section id="whimsical">
+<h2>10. WHIMSICAL SYSTEM MAP</h2>
+
+<pre>
+TEACHER
+   ↓
+CREATE QUESTIONS
+   ↓
+REVIEW & APPROVE
+   ↓
+QUESTION BANK
+   ↓
+SUPABASE
+   ↓
+AI GENERATE TEST
+   ↓
+PUBLISH TEST
+   ↓
+STUDENT LOGIN
+   ↓
+TAKE TEST
+   ↓
+SUBMIT ANSWERS
+   ↓
+AI GRADING
+   ↓
+ERROR ANALYSIS
+   ↓
+STUDY PLAN
+   ↓
+SUPABASE
+   ↓
+TEACHER DASHBOARD
+   ├── Student Scores
+   ├── Learning Weaknesses
+   ├── Error Analysis
+   ├── Progress Tracking
+   └── Reports
+</pre>
+</section>
+
+<section>
+<h2>11. MVP QUALITY & SECURITY RULES</h2>
+
+<div class="warning">
+<strong>Important:</strong> AI-generated questions must not
+be published automatically without validation.
+</div>
+
+<ul>
+<li>Only approved questions can be published.</li>
+<li>Answer keys must not be exposed to students before submission.</li>
+<li>Student data must be protected by authentication and access policies.</li>
+<li>AI scores must be validated against deterministic answer keys.</li>
+<li>Every attempt must be stored for progress tracking.</li>
+<li>Teacher approval is required for official learning materials.</li>
+<li>API keys must be stored in server-side environment variables.</li>
+</ul>
+</section>
+
+</div>
+
+<footer>
+<h3>IOE MASTER</h3>
+<p>AI-Powered English Learning & Assessment System</p>
+<p>Learn Better - Practice Smarter - Improve Every Day</p>
+</footer>
+
+</body>
+</html>
