@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Câu Từ Vựng Lớp 10 – IOE 2026-2027 (Tự chấm điểm)</title>
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --secondary: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --light: #f1f5f9;
+    --text: #1f2937;
+    --muted: #6b7280;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background: #f8fafc;
+    margin: 0;
+    padding: 20px;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    min-height: 100vh;
+  }
+  header {
+    text-align: center;
+    border-bottom: 4px solid var(--primary);
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+  }
+  header h1 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 22px;
+  }
+  header p {
+    margin: 4px 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .student-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 26px;
+    border: 1px solid #e2e8f0;
+    padding: 18px;
+    border-radius: 8px;
+    background: var(--light);
+  }
+  .student-info > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .student-info label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .student-info input {
+    padding: 7px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .unit {
+    margin-bottom: 34px;
+    page-break-inside: avoid;
+  }
+  .unit h2 {
+    background: var(--primary);
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 17px;
+    margin: 0 0 12px 0;
+  }
+  .question {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--secondary);
+    background: #fafbfd;
+  }
+  .qnum {
+    font-weight: 800;
+    color: var(--primary);
+    margin-right: 7px;
+  }
+  .options {
+    margin-top: 7px;
+  }
+  .options label {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .options input {
+    margin-right: 5px;
+    accent-color: var(--primary);
+  }
+  .instructions {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  /* Nút nộp bài */
+  .submit-box {
+    text-align: center;
+    margin: 30px 0;
+    page-break-inside: avoid;
+  }
+  button#submitBtn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(30,58,138,0.2);
+    transition: background 0.2s;
+  }
+  button#submitBtn:hover { background: #1e40af; }
+  button#resetBtn {
+    background: var(--muted);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  /* Kết quả */
+  #resultArea {
+    display: none;
+    margin-top: 30px;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 22px;
+    background: #f0f7ff;
+    page-break-inside: auto;
+  }
+  #resultArea h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 20px;
+  }
+  .score-big {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 10px 0 4px 0;
+  }
+  .score-text {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .rank-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .rank-excellent { background: #dcfce7; color: #166534; }
+  .rank-good { background: #dbeafe; color: #1e40af; }
+  .rank-average { background: #fef3c7; color: #92400e; }
+  .rank-poor { background: #fee2e2; color: #991b1b; }
+
+  table.stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  table.stat-table th, table.stat-table td {
+    border: 1px solid #94a3b8;
+    padding: 8px;
+    text-align: center;
+  }
+  table.stat-table th {
+    background: var(--primary);
+    color: #fff;
+  }
+  table.stat-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    background: var(--light);
+  }
+  .progress-wrap {
+    margin-top: 6px;
+  }
+  .progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--secondary);
+    width: 0%;
+    transition: width 0.6s ease;
+  }
+
+  .wrong-list {
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--danger);
+    background: #fef2f2;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+  }
+  .wrong-list.show { display: block; }
+  .wrong-list b { color: var(--danger); }
+
+  .advice {
+    margin-top: 18px;
+    padding: 14px;
+    background: var(--light);
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .advice b { color: var(--primary); }
+
+  .no-print {
+    display: block;
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; border: none; padding: 18mm; max-width: 100%; }
+    .no-print { display: none !important; }
+    #resultArea { display: block !important; }
+    .unit { page-break-inside: auto; }
+    .question { break-inside: avoid; }
+  }
+
+  /* Phần giáo viên */
+  .teacher-section {
+    page-break-before: always;
+    border-top: 4px solid var(--primary);
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+  .teacher-section h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+  th, td {
+    border: 1px solid #94a3b8;
+    padding: 9px;
+    text-align: center;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--primary);
+    color: #fff;
+  }
+  td:first-child {
+    text-align: left;
+    font-weight: 700;
+    background: var(--light);
+  }
+  .answer-key {
+    margin-top: 26px;
+    column-count: 5;
+    column-gap: 24px;
+    font-size: 12.5px;
+  }
+  .answer-key p { margin: 3px 0; break-inside: avoid; }
+  .answer-key b { color: var(--primary); }
+  .note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1>TRƯỜNG THPT &hellip; &bull; MÔN TIẾNG ANH LỚP 10</h1>
+    <p>BÀI TẬP TỰ HỌC TỪ VỰNG 100 CÂU &ndash; CHUẨN LUYỆN IOE 2026-2027</p>
+    <p>Level B1-B2, C1 | Chủ đề: Family Life &bull; Human and the Environment &bull; Music &bull; For Better Community &bull; Inventions</p>
+  </header>
+
+  <div class="student-info">
+    <div><label>Họ và tên học sinh:</label><input type="text" id="stuName"></div>
+    <div><label>Lớp:</label><input type="text" id="stuClass"></div>
+    <div><label>Số danh:</label><input type="text" id="stuNo"></div>
+    <div><label>Ngày làm bài:</label><input type="date"></div>
+  </div>
+
+  <p class="instructions">Hướng dẫn: Đọc kỹ từng câu và chọn một đáp án đúng nhất (A, B, C hoặc D). Sau khi làm xong, bấm <b>Nộp bài</b> để hệ thống tự chấm điểm và phân tích kiến thức.</p>
+
+  <!-- ==================== UNIT 1 ==================== -->
+  <section class="unit">
+    <h2>UNIT 1: FAMILY LIFE &ndash; CUỘC SỐNG GIA ĐÌNH (Câu 1-20)</h2>
+    <div class="question"><span class="qnum">1.</span> She has a very close ______ with her grandparents.
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. bond</label>
+        <label><input type="radio" name="q1" value="B"> B. tie</label>
+        <label><input type="radio" name="q1" value="C"> C. link</label>
+        <label><input type="radio" name="q1" value="D"> D. connection</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">2.</span> My parents are ______; they never miss a deadline or forget a promise.
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. careless</label>
+        <label><input type="radio" name="q2" value="B"> B. conscientious</label>
+        <label><input type="radio" name="q2" value="C"> C. spontaneous</label>
+        <label><input type="radio" name="q2" value="D"> D. indifferent</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">3.</span> Children often ______ their parents when they are young.
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. look down on</label>
+        <label><input type="radio" name="q3" value="B"> B. look up to</label>
+        <label><input type="radio" name="q3" value="C"> C. look after</label>
+        <label><input type="radio" name="q3" value="D"> D. look for</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">4.</span> An ______ family includes parents, children, grandparents, uncles, and aunts.
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. nuclear</label>
+        <label><input type="radio" name="q4" value="B"> B. extended</label>
+        <label><input type="radio" name="q4" value="C"> C. single-parent</label>
+        <label><input type="radio" name="q4" value="D"> D. blended</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">5.</span> She decided to ______ her younger brother while her parents were away.
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> A. bring up</label>
+        <label><input type="radio" name="q5" value="B"> B. look after</label>
+        <label><input type="radio" name="q5" value="C"> C. take after</label>
+        <label><input type="radio" name="q5" value="D"> D. grow up</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">6.</span> Which phrasal verb means “to raise a child”?
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> A. bring up</label>
+        <label><input type="radio" name="q6" value="B"> B. break up</label>
+        <label><input type="radio" name="q6" value="C"> C. give up</label>
+        <label><input type="radio" name="q6" value="D"> D. set up</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">7.</span> Teenagers often ______ with their parents about household rules.
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A. fall out</label>
+        <label><input type="radio" name="q7" value="B"> B. make up</label>
+        <label><input type="radio" name="q7" value="C"> C. get along</label>
+        <label><input type="radio" name="q7" value="D"> D. look forward</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">8.</span> A ______ is a brother or sister.
+      <div class="options">
+        <label><input type="radio" name="q8" value="A"> A. cousin</label>
+        <label><input type="radio" name="q8" value="B"> B. sibling</label>
+        <label><input type="radio" name="q8" value="C"> C. relative</label>
+        <label><input type="radio" name="q8" value="D"> D. spouse</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">9.</span> She ______ her mother in both appearance and personality.
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A. takes after</label>
+        <label><input type="radio" name="q9" value="B"> B. takes up</label>
+        <label><input type="radio" name="q9" value="C"> C. takes off</label>
+        <label><input type="radio" name="q9" value="D"> D. takes in</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">10.</span> The ______ generation refers to elderly people.
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> A. younger</label>
+        <label><input type="radio" name="q10" value="B"> B. older</label>
+        <label><input type="radio" name="q10" value="C"> C. middle</label>
+        <label><input type="radio" name="q10" value="D"> D. new</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">11.</span> “Blood is thicker than water” means ______.
+      <div class="options">
+        <label><input type="radio" name="q11" value="A"> A. family relationships are stronger than others</label>
+        <label><input type="radio" name="q11" value="B"> B. water is important for health</label>
+        <label><input type="radio" name="q11" value="C"> C. family members should donate blood</label>
+        <label><input type="radio" name="q11" value="D"> D. relatives live far away</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">12.</span> My uncle is ______; he always helps neighbors without expecting anything in return.
+      <div class="options">
+        <label><input type="radio" name="q12" value="A"> A. selfish</label>
+        <label><input type="radio" name="q12" value="B"> B. generous</label>
+        <label><input type="radio" name="q12" value="C"> C. stingy</label>
+        <label><input type="radio" name="q12" value="D"> D. rude</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">13.</span> A ______ family consists of only parents and their children.
+      <div class="options">
+        <label><input type="radio" name="q13" value="A"> A. extended</label>
+        <label><input type="radio" name="q13" value="B"> B. nuclear</label>
+        <label><input type="radio" name="q13" value="C"> C. joint</label>
+        <label><input type="radio" name="q13" value="D"> D. blended</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">14.</span> They ______ last month and haven’t spoken since.
+      <div class="options">
+        <label><input type="radio" name="q14" value="A"> A. made up</label>
+        <label><input type="radio" name="q14" value="B"> B. fell out</label>
+        <label><input type="radio" name="q14" value="C"> C. got along</label>
+        <label><input type="radio" name="q14" value="D"> D. looked up</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">15.</span> “Resilient” is closest in meaning to ______.
+      <div class="options">
+        <label><input type="radio" name="q15" value="A"> A. weak</label>
+        <label><input type="radio" name="q15" value="B"> B. able to recover quickly</label>
+        <label><input type="radio" name="q15" value="C"> C. fragile</label>
+        <label><input type="radio" name="q15" value="D"> D. sensitive</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">16.</span> Parents should ______ their children to become independent.
+      <div class="options">
+        <label><input type="radio" name="q16" value="A"> A. encourage</label>
+        <label><input type="radio" name="q16" value="B"> B. discourage</label>
+        <label><input type="radio" name="q16" value="C"> C. prevent</label>
+        <label><input type="radio" name="q16" value="D"> D. forbid</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">17.</span> She is very ______; she remembers everyone’s birthday and favorite food.
+      <div class="options">
+        <label><input type="radio" name="q17" value="A"> A. thoughtful</label>
+        <label><input type="radio" name="q17" value="B"> B. careless</label>
+        <label><input type="radio" name="q17" value="C"> C. absent-minded</label>
+        <label><input type="radio" name="q17" value="D"> D. arrogant</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">18.</span> A ______ is a person’s husband or wife.
+      <div class="options">
+        <label><input type="radio" name="q18" value="A"> A. sibling</label>
+        <label><input type="radio" name="q18" value="B"> B. spouse</label>
+        <label><input type="radio" name="q18" value="C"> C. relative</label>
+        <label><input type="radio" name="q18" value="D"> D. ancestor</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">19.</span> My grandparents ______ me with love and patience.
+      <div class="options">
+        <label><input type="radio" name="q19" value="A"> A. brought up</label>
+        <label><input type="radio" name="q19" value="B"> B. grow up</label>
+        <label><input type="radio" name="q19" value="C"> C. grow</label>
+        <label><input type="radio" name="q19" value="D"> D. raise</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">20.</span> “Dysfunctional” family means a family that ______.
+      <div class="options">
+        <label><input type="radio" name="q20" value="A"> A. works perfectly</label>
+        <label><input type="radio" name="q20" value="B"> B. has serious relationship problems</label>
+        <label><input type="radio" name="q20" value="C"> C. is very large</label>
+        <label><input type="radio" name="q20" value="D"> D. is very wealthy</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 2 ==================== -->
+  <section class="unit">
+    <h2>UNIT 2: HUMAN AND THE ENVIRONMENT &ndash; MÔI TRƯỜNG VÀ CON NGƯỜI (Câu 21-40)</h2>
+    <div class="question"><span class="qnum">21.</span> ______ refers to the gradual increase in Earth’s average temperature.
+      <div class="options">
+        <label><input type="radio" name="q21" value="A"> A. Deforestation</label>
+        <label><input type="radio" name="q21" value="B"> B. Global warming</label>
+        <label><input type="radio" name="q21" value="C"> C. Recycling</label>
+        <label><input type="radio" name="q21" value="D"> D. Biodiversity</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">22.</span> The ______ of a person or organization is the amount of carbon dioxide they produce.
+      <div class="options">
+        <label><input type="radio" name="q22" value="A"> A. carbon footprint</label>
+        <label><input type="radio" name="q22" value="B"> B. greenhouse effect</label>
+        <label><input type="radio" name="q22" value="C"> C. ozone layer</label>
+        <label><input type="radio" name="q22" value="D"> D. acid rain</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">23.</span> Many animals are ______ because their habitats are being destroyed.
+      <div class="options">
+        <label><input type="radio" name="q23" value="A"> A. extinct</label>
+        <label><input type="radio" name="q23" value="B"> B. endangered</label>
+        <label><input type="radio" name="q23" value="C"> C. common</label>
+        <label><input type="radio" name="q23" value="D"> D. protected</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">24.</span> ______ means no longer existing.
+      <div class="options">
+        <label><input type="radio" name="q24" value="A"> A. Endangered</label>
+        <label><input type="radio" name="q24" value="B"> B. Extinct</label>
+        <label><input type="radio" name="q24" value="C"> C. Rare</label>
+        <label><input type="radio" name="q24" value="D"> D. Protected</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">25.</span> We should ______ plastic bags to reduce pollution.
+      <div class="options">
+        <label><input type="radio" name="q25" value="A"> A. reuse</label>
+        <label><input type="radio" name="q25" value="B"> B. refuse</label>
+        <label><input type="radio" name="q25" value="C"> C. reduce</label>
+        <label><input type="radio" name="q25" value="D"> D. all are correct</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">26.</span> ______ is the variety of plant and animal life in a particular habitat.
+      <div class="options">
+        <label><input type="radio" name="q26" value="A"> A. Pollution</label>
+        <label><input type="radio" name="q26" value="B"> B. Biodiversity</label>
+        <label><input type="radio" name="q26" value="C"> C. Erosion</label>
+        <label><input type="radio" name="q26" value="D"> D. Contamination</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">27.</span> The government is ______ new laws to protect the rainforest.
+      <div class="options">
+        <label><input type="radio" name="q27" value="A"> A. passing</label>
+        <label><input type="radio" name="q27" value="B"> B. pass</label>
+        <label><input type="radio" name="q27" value="C"> C. passed</label>
+        <label><input type="radio" name="q27" value="D"> D. passes</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">28.</span> ______ gases trap heat in the atmosphere.
+      <div class="options">
+        <label><input type="radio" name="q28" value="A"> A. Greenhouse</label>
+        <label><input type="radio" name="q28" value="B"> B. Oxygen</label>
+        <label><input type="radio" name="q28" value="C"> C. Nitrogen</label>
+        <label><input type="radio" name="q28" value="D"> D. Hydrogen</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">29.</span> She leads a ______ lifestyle, producing almost no waste.
+      <div class="options">
+        <label><input type="radio" name="q29" value="A"> A. wasteful</label>
+        <label><input type="radio" name="q29" value="B"> B. zero-waste</label>
+        <label><input type="radio" name="q29" value="C"> C. consumerist</label>
+        <label><input type="radio" name="q29" value="D"> D. industrial</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">30.</span> To ______ means to keep something in its original state.
+      <div class="options">
+        <label><input type="radio" name="q30" value="A"> A. destroy</label>
+        <label><input type="radio" name="q30" value="B"> B. preserve</label>
+        <label><input type="radio" name="q30" value="C"> C. waste</label>
+        <label><input type="radio" name="q30" value="D"> D. pollute</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">31.</span> ______ is the process of turning waste into new products.
+      <div class="options">
+        <label><input type="radio" name="q31" value="A"> A. Recycling</label>
+        <label><input type="radio" name="q31" value="B"> B. Littering</label>
+        <label><input type="radio" name="q31" value="C"> C. Wasting</label>
+        <label><input type="radio" name="q31" value="D"> D. Burning</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">32.</span> The Amazon rainforest is often called the ______ of the Earth.
+      <div class="options">
+        <label><input type="radio" name="q32" value="A"> A. lungs</label>
+        <label><input type="radio" name="q32" value="B"> B. heart</label>
+        <label><input type="radio" name="q32" value="C"> C. liver</label>
+        <label><input type="radio" name="q32" value="D"> D. kidney</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">33.</span> Climate change causes more frequent and ______ natural disasters.
+      <div class="options">
+        <label><input type="radio" name="q33" value="A"> A. mild</label>
+        <label><input type="radio" name="q33" value="B"> B. severe</label>
+        <label><input type="radio" name="q33" value="C"> C. gentle</label>
+        <label><input type="radio" name="q33" value="D"> D. calm</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">34.</span> ______ farming avoids synthetic pesticides and fertilizers.
+      <div class="options">
+        <label><input type="radio" name="q34" value="A"> A. Industrial</label>
+        <label><input type="radio" name="q34" value="B"> B. Organic</label>
+        <label><input type="radio" name="q34" value="C"> C. Intensive</label>
+        <label><input type="radio" name="q34" value="D"> D. Conventional</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">35.</span> People should ______ their carbon footprint by using public transport.
+      <div class="options">
+        <label><input type="radio" name="q35" value="A"> A. increase</label>
+        <label><input type="radio" name="q35" value="B"> B. reduce</label>
+        <label><input type="radio" name="q35" value="C"> C. ignore</label>
+        <label><input type="radio" name="q35" value="D"> D. expand</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">36.</span> The ______ of polar ice caps contributes to rising sea levels.
+      <div class="options">
+        <label><input type="radio" name="q36" value="A"> A. melting</label>
+        <label><input type="radio" name="q36" value="B"> B. freezing</label>
+        <label><input type="radio" name="q36" value="C"> C. cooling</label>
+        <label><input type="radio" name="q36" value="D"> D. solidifying</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">37.</span> “Sustainable” means ______.
+      <div class="options">
+        <label><input type="radio" name="q37" value="A"> A. able to be maintained over time</label>
+        <label><input type="radio" name="q37" value="B"> B. temporary</label>
+        <label><input type="radio" name="q37" value="C"> C. harmful</label>
+        <label><input type="radio" name="q37" value="D"> D. expensive</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">38.</span> ______ is the contamination of water bodies.
+      <div class="options">
+        <label><input type="radio" name="q38" value="A"> A. Air pollution</label>
+        <label><input type="radio" name="q38" value="B"> B. Water pollution</label>
+        <label><input type="radio" name="q38" value="C"> C. Soil pollution</label>
+        <label><input type="radio" name="q38" value="D"> D. Noise pollution</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">39.</span> Many cities are ______ tree-planting campaigns to improve air quality.
+      <div class="options">
+        <label><input type="radio" name="q39" value="A"> A. launching</label>
+        <label><input type="radio" name="q39" value="B"> B. launch</label>
+        <label><input type="radio" name="q39" value="C"> C. launched</label>
+        <label><input type="radio" name="q39" value="D"> D. launches</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">40.</span> ______ energy comes from sources that never run out, like sunlight and wind.
+      <div class="options">
+        <label><input type="radio" name="q40" value="A"> A. Fossil</label>
+        <label><input type="radio" name="q40" value="B"> B. Renewable</label>
+        <label><input type="radio" name="q40" value="C"> C. Nuclear</label>
+        <label><input type="radio" name="q40" value="D"> D. Non-renewable</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 3 ==================== -->
+  <section class="unit">
+    <h2>UNIT 3: MUSIC &ndash; ÂM NHẠC (Câu 41-60)</h2>
+    <div class="question"><span class="qnum">41.</span> A ______ is a person who writes music.
+      <div class="options">
+        <label><input type="radio" name="q41" value="A"> A. singer</label>
+        <label><input type="radio" name="q41" value="B"> B. composer</label>
+        <label><input type="radio" name="q41" value="C"> C. dancer</label>
+        <label><input type="radio" name="q41" value="D"> D. listener</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">42.</span> The ______ is the main tune of a song.
+      <div class="options">
+        <label><input type="radio" name="q42" value="A"> A. rhythm</label>
+        <label><input type="radio" name="q42" value="B"> B. melody</label>
+        <label><input type="radio" name="q42" value="C"> C. beat</label>
+        <label><input type="radio" name="q42" value="D"> D. lyrics</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">43.</span> ______ are the words of a song.
+      <div class="options">
+        <label><input type="radio" name="q43" value="A"> A. Melody</label>
+        <label><input type="radio" name="q43" value="B"> B. Rhythm</label>
+        <label><input type="radio" name="q43" value="C"> C. Lyrics</label>
+        <label><input type="radio" name="q43" value="D"> D. Harmony</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">44.</span> She plays the ______ in the school orchestra.
+      <div class="options">
+        <label><input type="radio" name="q44" value="A"> A. violin</label>
+        <label><input type="radio" name="q44" value="B"> B. violine</label>
+        <label><input type="radio" name="q44" value="C"> C. violins</label>
+        <label><input type="radio" name="q44" value="D"> D. violon</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">45.</span> A ______ is a large group of musicians playing together.
+      <div class="options">
+        <label><input type="radio" name="q45" value="A"> A. band</label>
+        <label><input type="radio" name="q45" value="B"> B. choir</label>
+        <label><input type="radio" name="q45" value="C"> C. orchestra</label>
+        <label><input type="radio" name="q45" value="D"> D. duet</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">46.</span> “Genre” means a particular ______ of music.
+      <div class="options">
+        <label><input type="radio" name="q46" value="A"> A. style</label>
+        <label><input type="radio" name="q46" value="B"> B. color</label>
+        <label><input type="radio" name="q46" value="C"> C. taste</label>
+        <label><input type="radio" name="q46" value="D"> D. sound</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">47.</span> He ______ the guitar beautifully last night.
+      <div class="options">
+        <label><input type="radio" name="q47" value="A"> A. played</label>
+        <label><input type="radio" name="q47" value="B"> B. play</label>
+        <label><input type="radio" name="q47" value="C"> C. playing</label>
+        <label><input type="radio" name="q47" value="D"> D. plays</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">48.</span> A ______ is a musical performance given by one person.
+      <div class="options">
+        <label><input type="radio" name="q48" value="A"> A. duet</label>
+        <label><input type="radio" name="q48" value="B"> B. solo</label>
+        <label><input type="radio" name="q48" value="C"> C. trio</label>
+        <label><input type="radio" name="q48" value="D"> D. choir</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">49.</span> The audience gave the performers a standing ______.
+      <div class="options">
+        <label><input type="radio" name="q49" value="A"> A. seat</label>
+        <label><input type="radio" name="q49" value="B"> B. ovation</label>
+        <label><input type="radio" name="q49" value="C"> C. silence</label>
+        <label><input type="radio" name="q49" value="D"> D. walk</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">50.</span> “Catchy” music is ______.
+      <div class="options">
+        <label><input type="radio" name="q50" value="A"> A. difficult to forget</label>
+        <label><input type="radio" name="q50" value="B"> B. unpleasant</label>
+        <label><input type="radio" name="q50" value="C"> C. slow</label>
+        <label><input type="radio" name="q50" value="D"> D. loud</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">51.</span> They are ______ a new album next month.
+      <div class="options">
+        <label><input type="radio" name="q51" value="A"> A. releasing</label>
+        <label><input type="radio" name="q51" value="B"> B. release</label>
+        <label><input type="radio" name="q51" value="C"> C. released</label>
+        <label><input type="radio" name="q51" value="D"> D. releases</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">52.</span> A ______ is a person who leads an orchestra or choir.
+      <div class="options">
+        <label><input type="radio" name="q52" value="A"> A. composer</label>
+        <label><input type="radio" name="q52" value="B"> B. conductor</label>
+        <label><input type="radio" name="q52" value="C"> C. musician</label>
+        <label><input type="radio" name="q52" value="D"> D. vocalist</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">53.</span> ______ music is written in musical notation and performed by instruments.
+      <div class="options">
+        <label><input type="radio" name="q53" value="A"> A. Classical</label>
+        <label><input type="radio" name="q53" value="B"> B. Pop</label>
+        <label><input type="radio" name="q53" value="C"> C. Rock</label>
+        <label><input type="radio" name="q53" value="D"> D. Jazz</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">54.</span> She has a ______ voice; everyone enjoys listening to her.
+      <div class="options">
+        <label><input type="radio" name="q54" value="A"> A. horrible</label>
+        <label><input type="radio" name="q54" value="B"> B. melodious</label>
+        <label><input type="radio" name="q54" value="C"> C. harsh</label>
+        <label><input type="radio" name="q54" value="D"> D. dreadful</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">55.</span> “Live music” means music performed ______.
+      <div class="options">
+        <label><input type="radio" name="q55" value="A"> A. in a studio</label>
+        <label><input type="radio" name="q55" value="B"> B. in front of an audience</label>
+        <label><input type="radio" name="q55" value="C"> C. on a computer</label>
+        <label><input type="radio" name="q55" value="D"> D. in silence</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">56.</span> The ______ is the speed of a piece of music.
+      <div class="options">
+        <label><input type="radio" name="q56" value="A"> A. pitch</label>
+        <label><input type="radio" name="q56" value="B"> B. tempo</label>
+        <label><input type="radio" name="q56" value="C"> C. volume</label>
+        <label><input type="radio" name="q56" value="D"> D. tone</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">57.</span> He ______ the piano since he was six years old.
+      <div class="options">
+        <label><input type="radio" name="q57" value="A"> A. plays</label>
+        <label><input type="radio" name="q57" value="B"> B. has played</label>
+        <label><input type="radio" name="q57" value="C"> C. played</label>
+        <label><input type="radio" name="q57" value="D"> D. play</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">58.</span> A ______ is a short musical composition for a solo instrument.
+      <div class="options">
+        <label><input type="radio" name="q58" value="A"> A. symphony</label>
+        <label><input type="radio" name="q58" value="B"> B. sonata</label>
+        <label><input type="radio" name="q58" value="C"> C. opera</label>
+        <label><input type="radio" name="q58" value="D"> D. concerto</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">59.</span> “Tone-deaf” means unable to ______.
+      <div class="options">
+        <label><input type="radio" name="q59" value="A"> A. sing well</label>
+        <label><input type="radio" name="q59" value="B"> B. recognize musical notes</label>
+        <label><input type="radio" name="q59" value="C"> C. play instruments</label>
+        <label><input type="radio" name="q59" value="D"> D. write songs</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">60.</span> The concert was ______; thousands of fans attended.
+      <div class="options">
+        <label><input type="radio" name="q60" value="A"> A. canceled</label>
+        <label><input type="radio" name="q60" value="B"> B. sold out</label>
+        <label><input type="radio" name="q60" value="C"> C. postponed</label>
+        <label><input type="radio" name="q60" value="D"> D. empty</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 4 ==================== -->
+  <section class="unit">
+    <h2>UNIT 4: FOR A BETTER COMMUNITY &ndash; DÀNH CHO CỘNG ĐỒNG TỐT ĐẲNG HƠN (Câu 61-80)</h2>
+    <div class="question"><span class="qnum">61.</span> A ______ is a person who works for a community without being paid.
+      <div class="options">
+        <label><input type="radio" name="q61" value="A"> A. employee</label>
+        <label><input type="radio" name="q61" value="B"> B. volunteer</label>
+        <label><input type="radio" name="q61" value="C"> C. manager</label>
+        <label><input type="radio" name="q61" value="D"> D. customer</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">62.</span> The neighborhood ______ organized a street clean-up day.
+      <div class="options">
+        <label><input type="radio" name="q62" value="A"> A. association</label>
+        <label><input type="radio" name="q62" value="B"> B. association</label>
+        <label><input type="radio" name="q62" value="C"> C. associate</label>
+        <label><input type="radio" name="q62" value="D"> D. associations</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">63.</span> ______ means the feeling of being united with others.
+      <div class="options">
+        <label><input type="radio" name="q63" value="A"> A. Isolation</label>
+        <label><input type="radio" name="q63" value="B"> B. Cohesion</label>
+        <label><input type="radio" name="q63" value="C"> C. Division</label>
+        <label><input type="radio" name="q63" value="D"> D. Separation</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">64.</span> She ______ a fundraising campaign for the local hospital.
+      <div class="options">
+        <label><input type="radio" name="q64" value="A"> A. launched</label>
+        <label><input type="radio" name="q64" value="B"> B. launch</label>
+        <label><input type="radio" name="q64" value="C"> C. launching</label>
+        <label><input type="radio" name="q64" value="D"> D. launches</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">65.</span> A ______ is a plan or system for achieving a goal.
+      <div class="options">
+        <label><input type="radio" name="q65" value="A"> A. problem</label>
+        <label><input type="radio" name="q65" value="B"> B. initiative</label>
+        <label><input type="radio" name="q65" value="C"> C. obstacle</label>
+        <label><input type="radio" name="q65" value="D"> D. conflict</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">66.</span> People should ______ to local charities to help those in need.
+      <div class="options">
+        <label><input type="radio" name="q66" value="A"> A. donate</label>
+        <label><input type="radio" name="q66" value="B"> B. waste</label>
+        <label><input type="radio" name="q66" value="C"> C. save</label>
+        <label><input type="radio" name="q66" value="D"> D. hide</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">67.</span> ______ is the act of giving help to people who are poor or sick.
+      <div class="options">
+        <label><input type="radio" name="q67" value="A"> A. Charity</label>
+        <label><input type="radio" name="q67" value="B"> B. Egoism</label>
+        <label><input type="radio" name="q67" value="C"> C. Indifference</label>
+        <label><input type="radio" name="q67" value="D"> D. Neglect</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">68.</span> The city council ______ new recycling bins in all public parks.
+      <div class="options">
+        <label><input type="radio" name="q68" value="A"> A. installed</label>
+        <label><input type="radio" name="q68" value="B"> B. install</label>
+        <label><input type="radio" name="q68" value="C"> C. installing</label>
+        <label><input type="radio" name="q68" value="D"> D. installs</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">69.</span> “Inclusive” means ______.
+      <div class="options">
+        <label><input type="radio" name="q69" value="A"> A. excluding some people</label>
+        <label><input type="radio" name="q69" value="B"> B. including everyone</label>
+        <label><input type="radio" name="q69" value="C"> C. expensive</label>
+        <label><input type="radio" name="q69" value="D"> D. exclusive</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">70.</span> Teenagers can ______ by tutoring younger children in their free time.
+      <div class="options">
+        <label><input type="radio" name="q70" value="A"> A. contribute</label>
+        <label><input type="radio" name="q70" value="B"> B. waste</label>
+        <label><input type="radio" name="q70" value="C"> C. ignore</label>
+        <label><input type="radio" name="q70" value="D"> D. destroy</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">71.</span> A ______ neighborhood is one where people know and help each other.
+      <div class="options">
+        <label><input type="radio" name="q71" value="A"> A. close-knit</label>
+        <label><input type="radio" name="q71" value="B"> B. distant</label>
+        <label><input type="radio" name="q71" value="C"> C. isolated</label>
+        <label><input type="radio" name="q71" value="D"> D. hostile</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">72.</span> The local ______ organized a tree-planting event last weekend.
+      <div class="options">
+        <label><input type="radio" name="q72" value="A"> A. community</label>
+        <label><input type="radio" name="q72" value="B"> B. committee</label>
+        <label><input type="radio" name="q72" value="C"> C. council</label>
+        <label><input type="radio" name="q72" value="D"> D. all are correct</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">73.</span> ______ means treating all people equally and fairly.
+      <div class="options">
+        <label><input type="radio" name="q73" value="A"> A. Discrimination</label>
+        <label><input type="radio" name="q73" value="B"> B. Equality</label>
+        <label><input type="radio" name="q73" value="C"> C. Inequality</label>
+        <label><input type="radio" name="q73" value="D"> D. Prejudice</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">74.</span> She ______ two hours every week at the animal shelter.
+      <div class="options">
+        <label><input type="radio" name="q74" value="A"> A. spends</label>
+        <label><input type="radio" name="q74" value="B"> B. waste</label>
+        <label><input type="radio" name="q74" value="C"> C. lose</label>
+        <label><input type="radio" name="q74" value="D"> D. miss</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">75.</span> A ______ is a formal meeting to discuss community issues.
+      <div class="options">
+        <label><input type="radio" name="q75" value="A"> A. party</label>
+        <label><input type="radio" name="q75" value="B"> B. forum</label>
+        <label><input type="radio" name="q75" value="C"> C. concert</label>
+        <label><input type="radio" name="q75" value="D"> D. picnic</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">76.</span> “Neighborly” describes someone who is ______.
+      <div class="options">
+        <label><input type="radio" name="q76" value="A"> A. unfriendly</label>
+        <label><input type="radio" name="q76" value="B"> B. kind and helpful</label>
+        <label><input type="radio" name="q76" value="C"> C. noisy</label>
+        <label><input type="radio" name="q76" value="D"> D. selfish</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">77.</span> The project aims to ______ the quality of life in rural areas.
+      <div class="options">
+        <label><input type="radio" name="q77" value="A"> A. improve</label>
+        <label><input type="radio" name="q77" value="B"> B. worsen</label>
+        <label><input type="radio" name="q77" value="C"> C. damage</label>
+        <label><input type="radio" name="q77" value="D"> D. destroy</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">78.</span> People from different backgrounds ______ during the cultural festival.
+      <div class="options">
+        <label><input type="radio" name="q78" value="A"> A. socialized</label>
+        <label><input type="radio" name="q78" value="B"> B. isolated</label>
+        <label><input type="radio" name="q78" value="C"> C. quarreled</label>
+        <label><input type="radio" name="q78" value="D"> D. ignored</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">79.</span> A ______ is someone who supports a particular cause or policy.
+      <div class="options">
+        <label><input type="radio" name="q79" value="A"> A. critic</label>
+        <label><input type="radio" name="q79" value="B"> B. advocate</label>
+        <label><input type="radio" name="q79" value="C"> C. enemy</label>
+        <label><input type="radio" name="q79" value="D"> D. stranger</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">80.</span> “Pay it forward” means ______.
+      <div class="options">
+        <label><input type="radio" name="q80" value="A"> A. repaying a loan</label>
+        <label><input type="radio" name="q80" value="B"> B. responding to kindness by being kind to others</label>
+        <label><input type="radio" name="q80" value="C"> C. saving money</label>
+        <label><input type="radio" name="q80" value="D"> D. forgetting favors</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 5 ==================== -->
+  <section class="unit">
+    <h2>UNIT 5: INVENTIONS &ndash; PHÁT MINH (Câu 81-100)</h2>
+    <div class="question"><span class="qnum">81.</span> A ______ is an original model of a new product.
+      <div class="options">
+        <label><input type="radio" name="q81" value="A"> A. product</label>
+        <label><input type="radio" name="q81" value="B"> B. prototype</label>
+        <label><input type="radio" name="q81" value="C"> C. copy</label>
+        <label><input type="radio" name="q81" value="D"> D. replica</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">82.</span> The ______ is the person who creates something new.
+      <div class="options">
+        <label><input type="radio" name="q82" value="A"> A. inventor</label>
+        <label><input type="radio" name="q82" value="B"> B. investor</label>
+        <label><input type="radio" name="q82" value="C"> C. customer</label>
+        <label><input type="radio" name="q82" value="D"> D. user</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">83.</span> ______ means to officially protect an invention by law.
+      <div class="options">
+        <label><input type="radio" name="q83" value="A"> A. Publish</label>
+        <label><input type="radio" name="q83" value="B"> B. Patent</label>
+        <label><input type="radio" name="q83" value="C"> C. Promote</label>
+        <label><input type="radio" name="q83" value="D"> D. Produce</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">84.</span> A ______ is a small technological device or tool.
+      <div class="options">
+        <label><input type="radio" name="q84" value="A"> A. gadget</label>
+        <label><input type="radio" name="q84" value="B"> B. building</label>
+        <label><input type="radio" name="q84" value="C"> C. machine</label>
+        <label><input type="radio" name="q84" value="D"> D. vehicle</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">85.</span> The light bulb was a ______ invention that changed daily life.
+      <div class="options">
+        <label><input type="radio" name="q85" value="A"> A. boring</label>
+        <label><input type="radio" name="q85" value="B"> B. revolutionary</label>
+        <label><input type="radio" name="q85" value="C"> C. useless</label>
+        <label><input type="radio" name="q85" value="D"> D. outdated</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">86.</span> ______ is the process of developing something new.
+      <div class="options">
+        <label><input type="radio" name="q86" value="A"> A. Destruction</label>
+        <label><input type="radio" name="q86" value="B"> B. Innovation</label>
+        <label><input type="radio" name="q86" value="C"> C. Imitation</label>
+        <label><input type="radio" name="q86" value="D"> D. Repetition</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">87.</span> Thomas Edison ______ the phonograph in 1877.
+      <div class="options">
+        <label><input type="radio" name="q87" value="A"> A. invented</label>
+        <label><input type="radio" name="q87" value="B"> B. invent</label>
+        <label><input type="radio" name="q87" value="C"> C. invention</label>
+        <label><input type="radio" name="q87" value="D"> D. inventing</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">88.</span> A ______ is a sudden discovery or achievement.
+      <div class="options">
+        <label><input type="radio" name="q88" value="A"> A. breakdown</label>
+        <label><input type="radio" name="q88" value="B"> B. breakthrough</label>
+        <label><input type="radio" name="q88" value="C"> C. breakup</label>
+        <label><input type="radio" name="q88" value="D"> D. breakout</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">89.</span> The ______ allowed people to communicate over long distances instantly.
+      <div class="options">
+        <label><input type="radio" name="q89" value="A"> A. typewriter</label>
+        <label><input type="radio" name="q89" value="B"> B. telephone</label>
+        <label><input type="radio" name="q89" value="C"> C. toaster</label>
+        <label><input type="radio" name="q89" value="D"> D. fan</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">90.</span> ______ refers to the use of scientific knowledge for practical purposes.
+      <div class="options">
+        <label><input type="radio" name="q90" value="A"> A. Art</label>
+        <label><input type="radio" name="q90" value="B"> B. Technology</label>
+        <label><input type="radio" name="q90" value="C"> C. History</label>
+        <label><input type="radio" name="q90" value="D"> D. Literature</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">91.</span> A ______ improves an existing product or process.
+      <div class="options">
+        <label><input type="radio" name="q91" value="A"> A. tradition</label>
+        <label><input type="radio" name="q91" value="B"> B. modification</label>
+        <label><input type="radio" name="q91" value="C"> C. destruction</label>
+        <label><input type="radio" name="q91" value="D"> D. repetition</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">92.</span> The Wright brothers are credited with ______ the first powered airplane.
+      <div class="options">
+        <label><input type="radio" name="q92" value="A"> A. inventing</label>
+        <label><input type="radio" name="q92" value="B"> B. invent</label>
+        <label><input type="radio" name="q92" value="C"> C. invented</label>
+        <label><input type="radio" name="q92" value="D"> D. invents</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">93.</span> A ______ is a legal right to make, use, or sell an invention.
+      <div class="options">
+        <label><input type="radio" name="q93" value="A"> A. license</label>
+        <label><input type="radio" name="q93" value="B"> B. patent</label>
+        <label><input type="radio" name="q93" value="C"> C. copyright</label>
+        <label><input type="radio" name="q93" value="D"> D. trademark</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">94.</span> The ______ transformed how people access information worldwide.
+      <div class="options">
+        <label><input type="radio" name="q94" value="A"> A. radio</label>
+        <label><input type="radio" name="q94" value="B"> B. internet</label>
+        <label><input type="radio" name="q94" value="C"> C. refrigerator</label>
+        <label><input type="radio" name="q94" value="D"> D. bicycle</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">95.</span> Scientists are ______ a new vaccine for the disease.
+      <div class="options">
+        <label><input type="radio" name="q95" value="A"> A. developing</label>
+        <label><input type="radio" name="q95" value="B"> B. develop</label>
+        <label><input type="radio" name="q95" value="C"> C. developed</label>
+        <label><input type="radio" name="q95" value="D"> D. develops</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">96.</span> A ______ is a machine that can carry out tasks automatically.
+      <div class="options">
+        <label><input type="radio" name="q96" value="A"> A. robot</label>
+        <label><input type="radio" name="q96" value="B"> B. phone</label>
+        <label><input type="radio" name="q96" value="C"> C. clock</label>
+        <label><input type="radio" name="q96" value="D"> D. lamp</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">97.</span> “Cutting-edge” means ______.
+      <div class="options">
+        <label><input type="radio" name="q97" value="A"> A. old-fashioned</label>
+        <label><input type="radio" name="q97" value="B"> B. very modern and advanced</label>
+        <label><input type="radio" name="q97" value="C"> C. cheap</label>
+        <label><input type="radio" name="q97" value="D"> D. dangerous</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">98.</span> The ______ made it possible to print books quickly and cheaply.
+      <div class="options">
+        <label><input type="radio" name="q98" value="A"> A. computer</label>
+        <label><input type="radio" name="q98" value="B"> B. printing press</label>
+        <label><input type="radio" name="q98" value="C"> C. television</label>
+        <label><input type="radio" name="q98" value="D"> D. camera</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">99.</span> Many ______ have made housework easier, such as washing machines.
+      <div class="options">
+        <label><input type="radio" name="q99" value="A"> A. inventions</label>
+        <label><input type="radio" name="q99" value="B"> B. traditions</label>
+        <label><input type="radio" name="q99" value="C"> C. celebrations</label>
+        <label><input type="radio" name="q99" value="D"> D. habits</label>
+      </div>
+    </div>
+    <div class="question"><span class="qnum">100.</span> A ______ is a formal document that gives details about an invention.
+      <div class="options">
+        <label><input type="radio" name="q100" value="A"> A. novel</label>
+        <label><input type="radio" name="q100" value="B"> B. patent specification</label>
+        <label><input type="radio" name="q100" value="C"> C. receipt</label>
+        <label><input type="radio" name="q100" value="D"> D. menu</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nút nộp bài -->
+  <div class="submit-box no-print">
+    <button id="submitBtn">📋 Nộp bài &amp; Xem kết quả</button>
+    <button id="resetBtn" type="button">🔄 Làm lại</button>
+  </div>
+
+  <!-- ==================== KẾT QUẢ TỰ ĐỘNG ==================== -->
+  <section id="resultArea">
+    <h2>📊 KẾT QUẢ ĐÁNH GIÁ</h2>
+    <p>Xin chào <span id="showName"></span> (Lớp: <span id="showClass"></span>), đây là phân tích chi tiết năng lực của bạn sau 100 câu.</p>
+
+    <div class="score-big" id="totalScore">0 / 100</div>
+    <div class="score-text" id="scorePercent">0%</div>
+
+    <div id="showRank" class="rank-badge rank-poor">Chưa xếp hạng</div>
+
+    <h3 style="margin-top:24px; color:var(--primary); font-size:16px;">Bảng theo dõi theo Unit</h3>
+    <table class="stat-table">
+      <thead>
+        <tr>
+          <th>Unit / Chủ đề</th>
+          <th>Đúng</th>
+          <th>Tổng</th>
+          <th>%</th>
+          <th>Mức độ</th>
+        </tr>
+      </thead>
+      <tbody id="unitRows">
+        <!-- JS sẽ điền -->
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:24px; color:var(--primary); font-size:16px;">Phân tích theo nhóm kiến thức (trong mỗi Unit)</h3>
+    <div id="categoryAnalysis">
+      <!-- JS sẽ tạo bảng chi tiết từng Unit -->
+    </div>
+
+    <div id="wrongSection" class="wrong-list">
+      <strong>❌ Các câu bạn chưa làm đúng:</strong>
+      <div id="wrongList"></div>
+      <button id="toggleWrong" style="margin-top:8px; padding:6px 12px; font-size:12px; cursor:pointer;">Ẩn câu sai</button>
+    </div>
+
+    <div class="advice" id="adviceBox">
+      <!-- Khuyến nghị học tập -->
+    </div>
+
+    <div style="margin-top:18px; text-align:center;">
+      <button id="printResult" style="padding:10px 20px; font-size:14px; cursor:pointer;">🖨️ In kết quả</button>
+    </div>
+  </section>
+
+  <!-- ==================== PHẦN GIÁO VIÊN ==================== -->
+  <section class="teacher-section">
+    <h2>PHẦN ĐÁP ÁN VÀ BẢNG THEO DÕI TIẾN ĐỘ (CHO GIÁO VIÊN)</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Chủ đề / Unit</th>
+          <th>Số câu</th>
+          <th>Số câu đúng</th>
+          <th>Số câu sai</th>
+          <th>Điểm (đ)</th>
+          <th>Nhận xét</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Unit 1: Family Life</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Unit 2: Human and the Environment</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Unit 3: Music</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Unit 4: For a Better Community</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Unit 5: Inventions</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+        <tr style="font-weight:bold; background:#e2e8f0;"><td>TỔNG</td><td>100</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="answer-key">
+      <p><b>1-A</b> <b>2-B</b> <b>3-B</b> <b>4-B</b> <b>5-B</b> <b>6-A</b> <b>7-A</b> <b>8-B</b> <b>9-A</b> <b>10-B</b></p>
+      <p><b>11-A</b> <b>12-B</b> <b>13-B</b> <b>14-B</b> <b>15-B</b> <b>16-A</b> <b>17-A</b> <b>18-B</b> <b>19-A</b> <b>20-B</b></p>
+      <p><b>21-B</b> <b>22-A</b> <b>23-B</b> <b>24-B</b> <b>25-D</b> <b>26-B</b> <b>27-A</b> <b>28-A</b> <b>29-B</b> <b>30-B</b></p>
+      <p><b>31-A</b> <b>32-A</b> <b>33-B</b> <b>34-B</b> <b>35-B</b> <b>36-A</b> <b>37-A</b> <b>38-B</b> <b>39-A</b> <b>40-B</b></p>
+      <p><b>41-B</b> <b>42-B</b> <b>43-C</b> <b>44-A</b> <b>45-C</b> <b>46-A</b> <b>47-A</b> <b>48-B</b> <b>49-B</b> <b>50-A</b></p>
+      <p><b>51-A</b> <b>52-B</b> <b>53-A</b> <b>54-B</b> <b>55-B</b> <b>56-B</b> <b>57-B</b> <b>58-B</b> <b>59-B</b> <b>60-B</b></p>
+      <p><b>61-B</b> <b>62-A</b> <b>63-B</b> <b>64-A</b> <b>65-B</b> <b>66-A</b> <b>67-A</b> <b>68-A</b> <b>69-B</b> <b>70-A</b></p>
+      <p><b>71-A</b> <b>72-D</b> <b>73-B</b> <b>74-A</b> <b>75-B</b> <b>76-B</b> <b>77-A</b> <b>78-A</b> <b>79-B</b> <b>80-B</b></p>
+      <p><b>81-B</b> <b>82-A</b> <b>83-B</b> <b>84-A</b> <b>85-B</b> <b>86-B</b> <b>87-A</b> <b>88-B</b> <b>89-B</b> <b>90-B</b></p>
+      <p><b>91-B</b> <b>92-A</b> <b>93-B</b> <b>94-B</b> <b>95-A</b> <b>96-A</b> <b>97-B</b> <b>98-B</b> <b>99-A</b> <b>100-B</b></p>
+    </div>
+
+    <p class="note">Lưu ý: Sau khi học sinh bấm Nộp bài, phần #resultArea sẽ hiện điểm và phân tích. Giáo viên có thể yêu cầu HS chụp màn hình hoặc in kết quả để lưu hồ sơ luyện tập IOE 2026-2027.</p>
+  </section>
+
+</div>
+
+<script>
+  /* ==================== ĐÁP ÁN ==================== */
+  const answers = {
+    1:'A', 2:'B', 3:'B', 4:'B', 5:'B', 6:'A', 7:'A', 8:'B', 9:'A', 10:'B',
+    11:'A', 12:'B', 13:'B', 14:'B', 15:'B', 16:'A', 17:'A', 18:'B', 19:'A', 20:'B',
+    21:'B', 22:'A', 23:'B', 24:'B', 25:'D', 26:'B', 27:'A', 28:'A', 29:'B', 30:'B',
+    31:'A', 32:'A', 33:'B', 34:'B', 35:'B', 36:'A', 37:'A', 38:'B', 39:'A', 40:'B',
+    41:'B', 42:'B', 43:'C', 44:'A', 45:'C', 46:'A', 47:'A', 48:'B', 49:'B', 50:'A',
+    51:'A', 52:'B', 53:'A', 54:'B', 55:'B', 56:'B', 57:'B', 58:'B', 59:'B', 60:'B',
+    61:'B', 62:'A', 63:'B', 64:'A', 65:'B', 66:'A', 67:'A', 68:'A', 69:'B', 70:'A',
+    71:'A', 72:'D', 73:'B', 74:'A', 75:'B', 76:'B', 77:'A', 78:'A', 79:'B', 80:'B',
+    81:'B', 82:'A', 83:'B', 84:'A', 85:'B', 86:'B', 87:'A', 88:'B', 89:'B', 90:'B',
+    91:'B', 92:'A', 93:'B', 94:'B', 95:'A', 96:'A', 97:'B', 98:'B', 99:'A', 100:'B'
+  };
+
+  const unitNames = {
+    1: 'Unit 1: Family Life',
+    2: 'Unit 2: Human and the Environment',
+    3: 'Unit 3: Music',
+    4: 'Unit 4: For a Better Community',
+    5: 'Unit 5: Inventions'
+  };
+
+  /* ==================== META: đơn vị & nhóm kiến thức ==================== */
+  const meta = [
+    // Unit 1
+    {u:1,c:'Từ vựng'}, {u:1,c:'Từ vựng'}, {u:1,c:'Thành ngữ / Phrasal verb'}, {u:1,c:'Từ vựng'}, {u:1,c:'Thành ngữ / Phrasal verb'},
+    {u:1,c:'Thành ngữ / Phrasal verb'}, {u:1,c:'Thành ngữ / Phrasal verb'}, {u:1,c:'Từ vựng'}, {u:1,c:'Thành ngữ / Phrasal verb'}, {u:1,c:'Từ vựng'},
+    {u:1,c:'Thành ngữ (Idiom)'}, {u:1,c:'Từ vựng'}, {u:1,c:'Từ vựng'}, {u:1,c:'Thành ngữ / Phrasal verb'}, {u:1,c:'Từ vựng'},
+    {u:1,c:'Từ vựng'}, {u:1,c:'Từ vựng'}, {u:1,c:'Từ vựng'}, {u:1,c:'Từ vựng'}, {u:1,c:'Thành ngữ / Phrasal verb'},
+    {u:1,c:'Từ vựng'},
+    // Unit 2
+    {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng / Collocation'},
+    {u:2,c:'Từ vựng'}, {u:2,c:'Ngữ pháp (dạng động từ)'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'},
+    {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng / Collocation'},
+    {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Từ vựng'}, {u:2,c:'Ngữ pháp (dạng động từ)'}, {u:2,c:'Từ vựng'},
+    // Unit 3
+    {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'},
+    {u:3,c:'Từ vựng'}, {u:3,c:'Ngữ pháp (quá khứ đơn)'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng / Collocation'}, {u:3,c:'Từ vựng'},
+    {u:3,c:'Ngữ pháp (Thì)'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng / Collocation'},
+    {u:3,c:'Từ vựng'}, {u:3,c:'Ngữ pháp (Hiện tại hoàn thành)'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'}, {u:3,c:'Từ vựng'},
+    // Unit 4
+    {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng'}, {u:4,c:'Ngữ pháp (quá khứ đơn)'}, {u:4,c:'Từ vựng'},
+    {u:4,c:'Từ vựng / Collocation'}, {u:4,c:'Từ vựng'}, {u:4,c:'Ngữ pháp (quá khứ đơn)'}, {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng / Collocation'},
+    {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng'}, {u:4,c:'Ngữ pháp (quá khứ đơn)'}, {u:4,c:'Từ vựng'},
+    {u:4,c:'Từ vựng'}, {u:4,c:'Từ vựng / Collocation'}, {u:4,c:'Từ vựng / Collocation'}, {u:4,c:'Từ vựng'}, {u:4,c:'Thành ngữ (Idiom)'},
+    // Unit 5
+    {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'},
+    {u:5,c:'Từ vựng'}, {u:5,c:'Ngữ pháp (quá khứ đơn)'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'},
+    {u:5,c:'Từ vựng'}, {u:5,c:'Ngữ pháp (V-ing / Gerund)'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Ngữ pháp (Hiện tại tiếp diễn)'},
+    {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}, {u:5,c:'Từ vựng'}
+  ];
+
+  /* ==================== XỬ LÝ NỘP BÀI ==================== */
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const name = document.getElementById('stuName').value.trim() || 'Học sinh';
+    const lop = document.getElementById('stuClass').value.trim() || 'Lớp ...';
+    document.getElementById('showName').textContent = name;
+    document.getElementById('showClass').textContent = lop;
+
+    let totalCorrect = 0;
+    const unitStat = {1:{c:0,t:0,cat:{}}, 2:{c:0,t:0,cat:{}}, 3:{c:0,t:0,cat:{}}, 4:{c:0,t:0,cat:{}}, 5:{c:0,t:0,cat:{}}};
+    const wrongByUnit = {1:[], 2:[], 3:[], 4:[], 5:[]};
+
+    for (let i = 1; i <= 100; i++) {
+      const radios = document.getElementsByName('q' + i);
+      let selected = null;
+      for (let r of radios) if (r.checked) selected = r.value;
+      const m = meta[i - 1];
+      const isCorrect = (selected === answers[i]);
+      if (isCorrect) {
+        totalCorrect++;
+        unitStat[m.u].c++;
+      }
+      unitStat[m.u].t++;
+
+      if (!unitStat[m.u].cat[m.c]) unitStat[m.u].cat[m.c] = {c:0, t:0};
+      unitStat[m.u].cat[m.c].t++;
+      if (isCorrect) unitStat[m.u].cat[m.c].c++;
+
+      if (!isCorrect) wrongByUnit[m.u].push(i);
+    }
+
+    const percent = Math.round((totalCorrect / 100) * 100);
+    document.getElementById('totalScore').textContent = totalCorrect + ' / 100';
+    document.getElementById('scorePercent').textContent = percent + '%';
+
+    // Xếp hạng
+    const rankEl = document.getElementById('showRank');
+    rankEl.className = 'rank-badge';
+    let rankText = '';
+    if (percent >= 90) { rankText = 'Xuất sắc (C1)'; rankEl.classList.add('rank-excellent'); }
+    else if (percent >= 70) { rankText = 'Khá (B2)'; rankEl.classList.add('rank-good'); }
+    else if (percent >= 40) { rankText = 'Trung bình (B1)'; rankEl.classList.add('rank-average'); }
+    else { rankText = 'Cần cải thiện'; rankEl.classList.add('rank-poor'); }
+    rankEl.textContent = rankText;
+
+    // Bảng Unit
+    const unitRows = document.getElementById('unitRows');
+    unitRows.innerHTML = '';
+    for (let u = 1; u <= 5; u++) {
+      const st = unitStat[u];
+      const pct = Math.round((st.c / st.t) * 100);
+      let level = '';
+      if (pct >= 80) level = 'Mạnh';
+      else if (pct >= 60) level = 'Khá';
+      else if (pct >= 40) level = 'Cần tập trung';
+      else level = 'Yếu';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${unitNames[u]}</td>
+        <td>${st.c}</td>
+        <td>${st.t}</td>
+        <td>${pct}%</td>
+        <td>${level}</td>
+      `;
+      unitRows.appendChild(tr);
+    }
+
+    // Phân tích nhóm kiến thức theo Unit
+    const catAnalysis = document.getElementById('categoryAnalysis');
+    catAnalysis.innerHTML = '';
+    for (let u = 1; u <= 5; u++) {
+      const st = unitStat[u];
+      const box = document.createElement('div');
+      box.style.marginBottom = '16px';
+      box.style.padding = '12px';
+      box.style.background = '#fff';
+      box.style.border = '1px solid #e2e8f0';
+      box.style.borderRadius = '6px';
+      box.innerHTML = `<strong style="color:var(--primary);">${unitNames[u]}</strong>`;
+      let html = '<table class="stat-table" style="margin-top:8px;"><thead><tr><th>Nhóm kiến thức</th><th>Đúng</th><th>Tổng</th><th>%</th></tr></thead><tbody>';
+      for (const [cat, val] of Object.entries(st.cat)) {
+        const pct = Math.round((val.c / val.t) * 100);
+        html += `<tr><td>${cat}</td><td>${val.c}</td><td>${val.t}</td><td>${pct}%</td></tr>`;
+      }
+      html += '</tbody></table>';
+      box.innerHTML += html;
+      catAnalysis.appendChild(box);
+    }
+
+    // Câu sai
+    const wrongSec = document.getElementById('wrongSection');
+    const wrongList = document.getElementById('wrongList');
+    let allWrong = [];
+    for (let u = 1; u <= 5; u++) {
+      if (wrongByUnit[u].length) allWrong.push(unitNames[u] + ': ' + wrongByUnit[u].join(', '));
+    }
+    if (allWrong.length === 0) {
+      wrongSec.style.display = 'none';
+    } else {
+      wrongSec.style.display = 'block';
+      wrongSec.classList.add('show');
+      wrongList.innerHTML = allWrong.map(x => '<div>' + x + '</div>').join('');
+    }
+
+    // Lời khuyên
+    const advice = document.getElementById('adviceBox');
+    let adviceHtml = '<strong>💡 Khuyến nghị:</strong> ';
+    if (percent >= 90) adviceHtml = 'Trình độ xuất sắc! Bạn nắm vững từ vựng Units 1-5. Hãy tiếp tục luyện読 hiểu và viết để đạt điểm cao IOE.';
+    else if (percent >= 70) adviceHtml = 'Bạn đã khá. Nên ôn lại các nhóm kiến thức có % thấp ở trên và làm thêm bài trắc nghiệm tiếng trung.';
+    else if (percent >= 40) adviceHtml = 'Cần ôn tập lại từ vựng cơ bản và các cụm động từ (phrasal verbs) trong mỗi Unit trước khi làm bài mới.';
+    else adviceHtml = 'Bạn cần ôn lại từ đầu danh sách từ vựng 5 chủ đề và luyện dịch câu tiếng Anh-Việt mỗi ngày.';
+    advice.innerHTML = adviceHtml;
+
+    // Hiện kết quả
+    document.getElementById('resultArea').style.display = 'block';
+    document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Làm lại
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    for (let i = 1; i <= 100; i++) {
+      const radios = document.getElementsByName('q' + i);
+      for (let r of radios) r.checked = false;
+    }
+    document.getElementById('resultArea').style.display = 'none';
+    document.getElementById('stuName').value = '';
+    document.getElementById('stuClass').value = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // In kết quả
+  document.getElementById('printResult').addEventListener('click', function () {
+    window.print();
+  });
+
+  // Toggle câu sai
+  document.getElementById('toggleWrong').addEventListener('click', function () {
+    const sec = document.getElementById('wrongSection');
+    if (sec.classList.contains('show')) {
+      sec.classList.remove('show');
+      this.textContent = 'Hiện câu sai';
+    } else {
+      sec.classList.add('show');
+      this.textContent = 'Ẩn câu sai';
+    }
+  });
+</script>
+
+</body>
+</html>
